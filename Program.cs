@@ -2,24 +2,29 @@
 Console.Write("Введите количество элементов массива: ");
 int rows = Convert.ToInt32(Console.ReadLine()); // Задали количество элементов в массиве
 int count = 0;
-string [] massiv1 = new string [rows]; // создали массив, который будем анализировать
-string [] massiv2 = new string [massiv1.Length]; // создали массив, в который будем переносить данные
+string [] massive_1 = new string [rows]; // создали массив, который будем анализировать
+string [] massive_2 = new string [massive_1.Length]; // создали массив, в который будем переносить данные
 
 for (int i = 0;i<rows;i++) // заполняем массив
 {
     Console.Write ($"Введите значение или текст {i+1} элемента массива: ");
-    massiv1[i] = Console.ReadLine();
+    massive_1[i] = Console.ReadLine();
     Console.Write("");
 }
 
-for (int i = 0; i < massiv1.Length; i++) // перебираем первый массив
+for (int i = 0; i < massive_1.Length; i++) // перебираем первый массив
 {
-    if(massiv1[i].Length <= 3) //отсекаем значения меньше 3
+    if(massive_1[i].Length <= 3) //отсекаем значения меньше 3
     {
-        massiv2[count] = massiv1[i]; // переносим их во второй массив
-        Console.Write($"{massiv2[count]} "); // и сразу печатаем
+        massive_2[count] = massive_1[i]; // переносим их во второй массив
         count++;
     }
 }
+
+for (int i = 0; i < massive_2.Length; i++) // выводим массив 2 на печать
+{
+    Console.Write($"{massive_2[i]} ");
+}
+Console.WriteLine();
 
 
