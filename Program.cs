@@ -1,30 +1,56 @@
-﻿
-Console.Write("Введите количество элементов массива: ");
-int rows = Convert.ToInt32(Console.ReadLine()); // Задали количество элементов в массиве
-int count = 0;
-string [] massive_1 = new string [rows]; // создали массив, который будем анализировать
-string [] massive_2 = new string [massive_1.Length]; // создали массив, в который будем переносить данные
+﻿// Написать программу, которая из имеющегося массива строк формирует новый массив из строк, 
+// длина которых меньше, либо равна 3 символам. 
+// Первоначальный массив можно ввести с клавиатуры, либо задать на старте выполнения алгоритма. 
+// При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
-for (int i = 0;i<rows;i++) // заполняем массив
+int Input(string text)
 {
-    Console.Write ($"Введите значение или текст {i+1} элемента массива: ");
-    massive_1[i] = Console.ReadLine();
-    Console.Write("");
+    Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
 }
 
-for (int i = 0; i < massive_1.Length; i++) // перебираем первый массив
+
+int size = Input("Введите количество строк: ");
+string [] array = new string [size];
+    
+for (int i=0; i<size; i++)
 {
-    if(massive_1[i].Length <= 3) //отсекаем значения меньше 3
+    Console.Write($"Введите значение {i+1} элемента: ");
+    array[i]=Console.ReadLine();
+}
+    
+// Console.Write($"Массив_1: ");
+// for (int i=0; i<size; i++)
+// {
+//     Console.Write($"{array[i]}; ");
+// }
+
+int count = 0;
+for (int i =0; i<size; i++)
+{
+    if (array[i].Length<=3) count++;
+}
+    
+// Console.Write($"{count}"); 
+
+string []array_2=new string[count];
+
+count=0;
+for (int i=0; i<size; i++)
+{
+    if (array[i].Length<=3)
     {
-        massive_2[count] = massive_1[i]; // переносим их во второй массив
+        array_2[count]=array[i];
         count++;
     }
 }
-
-for (int i = 0; i < massive_2.Length; i++) // выводим массив 2 на печать
+Console.Write($"Массив_2: ");
+for (int j=0; j<count; j++)
 {
-    Console.Write($"{massive_2[i]} ");
+    Console.Write($"{array_2[j]}; ");
 }
-Console.WriteLine();
+
+
+
 
 
